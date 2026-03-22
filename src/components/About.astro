@@ -1,0 +1,142 @@
+<section class="about" id="about">
+    <div class="about-container">
+        <span class="section-label">About</span>
+        <div class="about-grid">
+            <div class="about-photo">
+                <img
+                src="/assets/images/profile-picture.jpeg"
+                alt="Eliyahu K. Yalley"
+                />
+            </div>
+            <div class="about-text">
+                <p class="bio-intro">
+                    Hi, I'm Eliyahu, Eli for short. Most people find it difficult to
+                    pronounce or remember after the first time, so Eli works just fine.
+                </p>
+
+                <p>
+                    I grew up in Ghana and took an unconventional path into engineering. I moved 
+                    to China to study <span class="accent">Electronics and Information Engineering</span>, which is really 
+                    just a fancy way of saying telecommunications Engineering with some extras 
+                    at <span class="accent"></span>Nanjing University of Information Science and Technology</span>. 
+                    That degree set the foundation, but the years that followed shaped how I actually think 
+                    about technology. From 2021 to 2024, I worked across software development, 
+                    data engineering, and eventually led a development team, building things, 
+                    breaking things, and learning what it means to ship real products.
+                </p>
+
+                <p>
+                    In 2024 I started my Master's in <span class="accent">Telecommunications Engineering</span>
+                    at the <span class="accent">University of Maryland, College Park,</span> 
+                    where I've gone deep into networking, routing protocols, network automation 
+                    and infrastructure design. Outside the classroom, I run a homelab on 
+                    <span class="accent">Proxmox</span> where I get to actually do the things 
+                    I study: spinning up <span class="accent">Juniper vSRX routers,</span> 
+                    automating deployments with <span class="accent">Ansible and Terraform,</span> 
+                    and experimenting with configurations that would be expensive to touch 
+                    in a production environment. The homelab is where theory becomes instinct.
+                </p>
+
+                <p>I'm also building <span class="accent">xUtility</span>, a personal web app that 
+                    started as a way to practice full-stack development and evolved into 
+                    something I actually use daily. It grows whenever I run into a problem 
+                    worth solving.
+                </p>
+
+                <p>The bigger picture: <span class="accent">Africa's technology sector</span> 
+                    is at an inflection point, and I want to be part of what comes next, 
+                    particularly in telecommunications and network infrastructure. There's a 
+                    lot of ground to cover, and I'm in no rush to stop learning.
+                </p>
+
+                <p class="skills">
+                    Ansible <span class="accent">·</span> 
+                    Terraform <span class="accent">·</span> 
+                    Python <span class="accent">·</span> 
+                    Juniper <span class="accent">·</span> 
+                    Linux <span class="accent">·</span> 
+                    React <span class="accent">·</span> 
+                    Proxmox <span class="accent">·</span> 
+                    NETCONF <span class="accent">·</span> 
+                    PyEZ <span class="accent">·</span> Git
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .about {
+        padding: 120px 120px;
+    }
+    .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .section-label {
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        display: block;
+        margin-bottom: 48px;
+    }
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 80px;
+        align-items: start;
+    }
+    .about-photo img {
+        width: 280px;
+        height: 280;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .about-text {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .about-text p {
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--text-primary);
+        line-height: 1.7;
+    }
+
+    .bio-intro {
+        font-style: italic;
+        color: var(--text-secondary) !important;
+    }
+    .accent {
+        color: var(--accent);
+    }
+    .skills {
+        font-size: 14px !important;
+        color: var(--text-secondary) !important;
+        margin-top: 8px;
+    }
+
+    /* Mobile */
+    @media (max-width: 760px) {
+        .about {
+            padding: 80px 24px;
+        }
+        .about-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .about-photo {
+            display: flex;
+            justify-content: center;
+        }
+        .about-photo img {
+            width: 180px;
+            height: 180px;
+        }
+    }
+</style>
