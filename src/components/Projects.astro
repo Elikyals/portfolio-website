@@ -1,0 +1,122 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry, CollectionKey } from "astro:content";
+
+const projects = await getCollection('projects')
+---
+
+<section class="projects" id="projects">
+    <div class="projects-container">
+        <span class="section-label">Projects</span>
+        <div class="projects-grid">
+            {projects.map((project: CollectionEntry<"projects">) => (
+                <div class="project-card">
+                    <h3 class="project-title">{project.data.title}</h3>
+                    <p class="project-tags">
+                        {project.data.tags.join(" · ")}
+                    </p>
+                    <p class="project-description">
+                        {project.data.description}
+                    </p>
+                    <div class="project-links">
+                        {project.data.links.map((link: {label: string; href: string}) => (
+                            <a href={link.href} target="_blank" rel="noopener noreferrer">
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
+                    {project.data.contributor && (
+                        <p class="project-contributor">Built with {project.data.contributor}</p>
+                    )}
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .projects {
+        padding: 120px;
+    }
+    .projects-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .section-label {
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        display: block;
+        margin-bottom: 48px;
+    }
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .project-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 24px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .project-title {
+        font-family: var(--font-display);
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--text-primary);
+    }
+    .project-tags {
+        font-family: var(--font-body);
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--accent);
+        line-height: 1.6;
+    }
+    .project-description {
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--text-primary);
+        line-height: 1.7;
+        flex: 1;
+        margin-bottom: 10px;
+    }
+    .project-links {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .project-links a {
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--accent);
+        text-decoration: underline;
+        transition: color 0.2s ease;
+    }
+    .project-links a:hover {
+        color: var(--text-secondary);
+    }
+    .project-contributor {
+        font-family: var(--font-body);
+        font-size: 13px;
+        color: var(--text-secondary);
+        font-style: italic;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .projects {
+            padding: 80px 24px;
+        }
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

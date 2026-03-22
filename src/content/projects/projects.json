@@ -1,0 +1,51 @@
+[
+    {
+        "id": "juniper-vsrx-ospf-lab",
+        "title": "Juniper vSRX OSPF Lab",
+        "tags": [
+        "Ansible",
+        "Terraform",
+        "Proxmox",
+        "Juniper vSRX",
+        "NETCONF",
+        "Jinja2"
+        ],
+        "description": "A homelab project provisioning and automating a multi-router Juniper vSRX OSPF network on Proxmox. Infrastructure provisioning handled by Terraform, with Ansible managing router configuration through NETCONF, Jinja2 templates and Vault for secrets management.",
+        "links": [
+        {
+            "label": "Lab ↗",
+            "href": "https://github.com/yourusername/juniper-ospf-lab"
+        },
+        {
+            "label": "Ansible/Terraform ↗",
+            "href": "https://github.com/yourusername/juniper-ospf-lab-ansible-terraform"
+        }
+        ]
+    },
+    {
+        "id": "xutility",
+        "title": "xutility",
+        "tags": ["React", "JavaScript", "Netlify"],
+        "description": "A personal utility web app built to practice full-stack development and solve real day-to-day problems. Includes a project randomizer, movie watchlist tracker and a LeetCode spaced-repetition tracker in progress. Designed mobile-first, with more utilities added as new problems come up.",
+        "links": [
+        { "label": "Live ↗", "href": "https://xutility.netlify.app" },
+        {
+            "label": "GitHub ↗",
+            "href": "https://github.com/yourusername/xutility"
+        }
+        ]
+    },
+    {
+        "id": "network-topology-discovery",
+        "title": "Network Topology Discovery & Visualization",
+        "tags": ["Python", "PyEZ", "LLDP", "Graphviz", "Juniper vSRX"],
+        "description": "A network automation tool that SSHes into Juniper vSRX routers, enables and queries LLDP to collect live neighbor information and renders the discovered topology as a visual graph with interface numbers and IP addresses.",
+        "links": [
+        {
+            "label": "GitHub ↗",
+            "href": "https://github.com/yourusername/network-topology"
+        }
+        ],
+        "contributor": "Srinath Ramachandran"
+    }
+]
