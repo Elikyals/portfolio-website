@@ -1,0 +1,106 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const posts = await getCollection('blog')
+---
+
+<section class="blog" id="blog">
+    <div class="blog-container">
+        <span class="section-label">Blog</span>
+        <div class="blog-grid">
+            {posts.map((post: CollectionEntry<"blog">) => (
+                <a href={`/blog/${post.id}`} class="blog-card">
+                    <div class="blog-card-content">
+                        <h3 class="blog-title">{post.data.title}</h3>
+                        <p class="blog-date">{post.data.date}</p>
+                        <p class="blog-excerpt">{post.data.excerpt}</p>
+                        <span class="blog-read-more">Read More ↗</span>
+                    </div>
+                </a>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .blog {
+        padding: 120px;
+    }
+    .blog-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .section-label {
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        display: block;
+        margin-bottom: 48px;
+    }
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .blog-card {
+        border-bottom: 1px solid var(--border);
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 12px;
+        transition: border-color 0.2s ease;
+    }
+    .blog-card:hover {
+        border-color: var(--accent);
+    }
+    .blog-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .blog-title {
+        font-family: var(--font-display);
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--text-primary);
+        line-height: 1.4;
+    }
+    .blog-date {
+        font-family: var(--font-body);
+        font-size: 13px;
+        color: var(--text-secondary);
+    }
+    .blog-excerpt {
+        font-family: var(--font-body);
+        font-size: 14px;
+        color: var(--text-primary);
+        line-height: 1.7;
+        flex: 1;
+    }
+    .blog-read-more {
+        display: inline-block;
+        margin-top: 16px;
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--accent);
+        transition: color 0.2s ease;
+    }
+    .blog-read-more:hover {
+        color: var(--text-secondary);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .blog {
+            padding: 80px 24px;
+        }
+        .blog-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
