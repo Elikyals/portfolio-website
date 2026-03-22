@@ -14,11 +14,11 @@
         "links": [
         {
             "label": "Lab ↗",
-            "href": "https://github.com/yourusername/juniper-ospf-lab"
+            "href": "https://github.com/Elikyals/juniper-ospf-lab"
         },
         {
             "label": "Ansible/Terraform ↗",
-            "href": "https://github.com/yourusername/juniper-ospf-lab-ansible-terraform"
+            "href": "https://github.com/Elikyals/juniper-ospf-lab-ansible-terraform"
         }
         ]
     },
@@ -30,8 +30,8 @@
         "links": [
         { "label": "Live ↗", "href": "https://xutility.netlify.app" },
         {
-            "label": "GitHub ↗",
-            "href": "https://github.com/yourusername/xutility"
+            "label": "GitHub Repo ↗",
+            "href": "https://github.com/Elikyals/utility-app"
         }
         ]
     },
@@ -42,8 +42,8 @@
         "description": "A network automation tool that SSHes into Juniper vSRX routers, enables and queries LLDP to collect live neighbor information and renders the discovered topology as a visual graph with interface numbers and IP addresses.",
         "links": [
         {
-            "label": "GitHub ↗",
-            "href": "https://github.com/yourusername/network-topology"
+            "label": "GitHub Repo ↗",
+            "href": "https://github.com/Elikyals/network-topology-viz"
         }
         ],
         "contributor": "Srinath Ramachandran"
