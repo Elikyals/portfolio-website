@@ -1,0 +1,220 @@
+---
+const socialLinks = [
+    { label: "GitHub", href: "https://github.com/Elikyals" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/eliyahukyalley" },
+    { label: "Instagram", href: "https://instagram.com/elikyals" },
+    {
+        label: "Handshake",
+        href: "https://app.joinhandshake.com/profiles/eliyahukyalley",
+    },
+];
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+---
+
+<section class="contact" id="contact">
+    <div class="contact-container">
+        <span class="section-label">Contact</span>
+        <div class="contact-grid">
+            <p class="contact-invite">
+                Got a question, an idea, or just want to talk tech? 
+                I'm always up for a good conversation.
+            </p>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value={web3formsKey}>
+
+                <div class="form-field">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" name="name" placeholder="hostname" required />
+                </div>
+
+                <div class="form-field">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" placeholder="user@domain.tld" required />
+                </div>
+
+                <div class="form-field">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea name="message" placeholder="# write your message here..." rows="6" required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <ul class="social-links">
+                {
+                    socialLinks.map((link) => (
+                    <li>
+                        <a href={link.href} target="_blank" rel="noopener noreferrer">
+                        {link.label}
+                        </a>
+                    </li>
+                    ))
+                }
+                </ul>
+            <p class="copyright">© 2026 Eliyahu K. Yalley</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact {
+        padding: 120px;
+    }
+
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-label {
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        display: block;
+        margin-bottom: 48px;
+    }
+
+    .contact-grid {
+        max-width: 400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-invite {
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+    .form-label {
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+        display: block;
+    }
+    .social-links {
+        list-style: none;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 32px;
+    }
+
+    .social-links a {
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .social-links a:hover {
+        color: var(--text-secondary);
+    }
+    .social-links li::after {
+        content: '·';
+        color: var(--text-primary);
+    }
+
+    .social-links li:last-child::after {
+        content: '';
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        width: 100%;
+        background: var(--bg-surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 12px 16px;
+        font-family: var(--font-body);
+        font-size: 16px;
+        color: var(--text-primary);
+        outline: none;
+        transition: border-color 0.2s ease;
+        resize: none;
+    }
+
+    .form-field input {
+        height: 44px;
+    }
+
+    .form-field textarea {
+        height: 160px;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+        color: var(--text-secondary);
+        opacity: 0.3;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+        border-color: var(--accent);
+    }
+
+    .submit-btn {
+        width: 50%;
+        height: 52px;
+        margin-top: 20px;
+        background: var(--accent);
+        color: var(--bg-primary);
+        font-family: var(--font-body);
+        border: 1px solid var(--accent);
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: border 0.2s ease, color 0.2s ease, background-color 0.2s ease,;;
+    }
+
+    .submit-btn:hover {
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+        background-color: transparent;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .copyright {
+        font-family: var(--font-body);
+        font-size: 13px;
+        color: var(--text-secondary);
+        text-align: center;
+        margin-top: 4px;
+    }
+
+  /* Mobile */
+    @media (max-width: 768px) {
+        .contact {
+        padding: 80px 24px;
+        }
+
+        .contact-grid {
+        grid-template-columns: 1fr;
+        }
+
+        .submit-btn {
+        width: 100%;
+        }
+    }
+</style>
