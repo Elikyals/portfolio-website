@@ -1,0 +1,88 @@
+---
+const highlights = [
+    "5+ years across software, data engineering & network automation",
+    "MS Telecommunications Engineering - University of Maryland, College Park",
+    "B.Sc Electronics & Information Engineering - NUIST, China",
+]
+---
+<section class="resume" id="resume">
+    <div class="resume-container">
+        <span class="section-label">Resume</span>
+        <div class="resume-content">
+            {highlights.map((highlight) => (
+                <p class="highlight">{highlight}</p>
+            ))}
+            <a href="/assets/ekyalley-resume-socials.pdf" target="_blank" rel="noopener noreferrer" class="view-resume">View Resume ↗</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .resume {
+        padding: 120px;
+    }
+    .resume-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .section-label {
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        display: block;
+        margin-bottom: 48px;
+    }
+    .resume-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .highlight {
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--text-primary);
+        line-height: 1.7;
+    }
+    .view-resume {
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 500;
+        width: 180px;
+        text-align: center;
+        padding-block: 10px;
+        border-radius: 6px;
+        background: var(--accent);
+        color: var(--bg-primary);
+        border: 1px solid var(--accent);
+        text-decoration: none;
+        transition: border 0.2s ease, color 0.2s ease, background-color 0.2s ease,;
+        margin-top: 40px;
+    }
+    .view-resume:hover {
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+        background-color: transparent;
+    }
+
+    @media (max-width: 768px) {
+        .resume {
+            padding: 80px 20px;
+        }
+        .section-label {
+            font-size: 10px;
+            margin-bottom: 32px;
+        }
+        .highlight {
+            font-size: 14px;
+        }
+        .view-resume {
+            width: 160px;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    }
+</style>
