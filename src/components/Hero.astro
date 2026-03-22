@@ -1,0 +1,114 @@
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1 class="hero-name">Eliyahu K. Yalley</h1>
+        <p class="hero-title">Network & Infrastructure Engineer</p>
+        <p class="hero-tagline">
+            Building and automating the systems that keep the world connected, one lab at a time. 
+        </p>
+        <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="/assets/ekyalley-resume-socials.pdf" target="_blank" class="btn btn-secondary">Resume</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        min-height: calc(100vh - 72px);
+        display: flex;
+        align-items: center;
+        padding: 0 120px;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 700px;
+    }
+
+    .hero-name {
+        font-family: var(--font-display);
+        font-size: 64px;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1.2;
+        margin-bottom: 4px;
+    }
+    .hero-title {
+        font-family: var(--font-display);
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--accent);
+        margin-bottom: 8px;
+        letter-spacing: 0.02em;
+    }
+    .hero-tagline {
+        font-family: var(--font-display);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--text-secondary);
+        line-height: 1.4;
+        margin-bottom: 30px;
+        max-width: 600px;
+    }
+    .hero-buttons {
+        display: flex;
+        gap: 16px;
+    }
+
+    .btn {
+        font-family: var(--font-body);
+        font-size: 16px;
+        font-weight: 500;
+        width: 180px;
+        text-align: center;
+        padding-block: 10px;
+        border-radius: 6px;
+    }
+    .btn-primary {
+        background: var(--accent);
+        color: var(--bg-primary);
+        border: 1px solid var(--accent);
+        text-decoration: none;
+        transition: border 0.2s ease, color 0.2s ease, background-color 0.2s ease,;
+    }
+
+    .btn-primary:hover {
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+        background-color: transparent;
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+        text-decoration: none;
+        transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .hero {
+            padding: 0 24px;
+        }
+        .hero-name {
+            font-size: 40px;
+        }
+        .hero-title {
+            font-size: 16px;
+        }
+        .hero-tagline {
+            line-height: 1.2;
+        }
+        .hero-buttons {
+            flex-direction: column;
+        }
+    }
+</style>
