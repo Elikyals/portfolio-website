@@ -83,6 +83,9 @@ const navLinks = [
     .nav-links a:hover {
         color: var(--accent);
     }
+    .nav-links a.active {
+        color: var(--text-primary);
+    }
 
     .nav-links a.nav-home {
         color: var(--accent);
@@ -214,5 +217,26 @@ const navLinks = [
             mobileMenu?.classList.remove('open')
             hamburger?.setAttribute('aria-expanded', 'false')
         })
+    })
+
+    const sections = document.querySelectorAll('section[id]')
+    const navLinksElements = document.querySelectorAll('.nav-links a')
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                navLinksElements.forEach((link) => {
+                    link.classList.remove('active')
+                    if (link.getAttribute('href') === `#${entry.target.id}`) {
+                    link.classList.add('active')
+                    }
+                })
+                }
+            })
+    }, {
+        rootMargin: '-40% 0px -60% 0px'
+    })
+    sections.forEach((section) => {
+        observer.observe(section)
     })
 </script>
