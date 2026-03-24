@@ -15,7 +15,12 @@ const posts = await getCollection('blog')
                         <h3 class="blog-title">{post.data.title}</h3>
                         <p class="blog-date">{post.data.date}</p>
                         <p class="blog-excerpt">{post.data.excerpt}</p>
-                        <span class="blog-read-more">Read More&nearr;</span>
+                        <span class="blog-read-more">
+                            Read More
+                            <svg width="10" height="10" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="blog-arrow-icon">
+                                <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
                     </div>
                 </a>
             ))}

@@ -21,7 +21,10 @@ const projects = await getCollection('projects')
                     <div class="project-links">
                         {project.data.links.map((link: {label: string; href: string}) => (
                             <a href={link.href} target="_blank" rel="noopener noreferrer">
-                                {link.label}&nearr;
+                                {link.label}
+                                <svg width="10" height="10" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="blog-arrow-icon">
+                                <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                             </a>
                         ))}
                     </div>
@@ -97,7 +100,7 @@ const projects = await getCollection('projects')
         font-size: 14px;
         font-weight: 500;
         color: var(--accent);
-        text-decoration: underline;
+        text-decoration: none;
         transition: color 0.2s ease;
     }
     .project-links a:hover {
