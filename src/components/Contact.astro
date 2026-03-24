@@ -3,10 +3,7 @@ const socialLinks = [
     { label: "GitHub", href: "https://github.com/Elikyals" },
     { label: "LinkedIn", href: "https://linkedin.com/in/eliyahukyalley" },
     { label: "Instagram", href: "https://instagram.com/elikyals" },
-    {
-        label: "Handshake",
-        href: "https://app.joinhandshake.com/profiles/eliyahukyalley",
-    },
+    { label: "Handshake", href: "https://app.joinhandshake.com/profiles/eliyahukyalley"},
 ];
 const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 ---
@@ -134,7 +131,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
         flex-direction: column;
         gap: 20px;
     }
-
+    
     .form-field input,
     .form-field textarea {
         width: 100%;
@@ -148,6 +145,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
         outline: none;
         transition: border-color 0.2s ease;
         resize: none;
+        margin-bottom: 8px;
     }
 
     .form-field input {

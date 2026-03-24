@@ -21,7 +21,7 @@ const projects = await getCollection('projects')
                     <div class="project-links">
                         {project.data.links.map((link: {label: string; href: string}) => (
                             <a href={link.href} target="_blank" rel="noopener noreferrer">
-                                {link.label}
+                                {link.label}&nearr;
                             </a>
                         ))}
                     </div>
