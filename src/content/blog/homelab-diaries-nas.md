@@ -7,6 +7,8 @@ coverImage: "/assets/images/blog/nas-cover.jpg"
 
 
 After weeks of my makeshift laptop running Proxmox lying dormant, an idea hit me, and honestly, several ideas came to mind at once. I could run the dev branch of my [xUtility app](https://xutility.netlify.app/) on it, use it as a test environment, maybe spin up another vSRX router for a more complex OSPF topology. Okay, back to the idea.
+<br>
+<br>
 
 I had two external hard drives lying around. One was harvested from an old Samsung laptop I purchased from a friend a few years back, as an aside, the screen panel from that same laptop was repurposed into an external monitor, which I currently use as a vertical display in my setup. The other drive came from my old daily driver, a [Dell Inspiron, which is the very machine Proxmox](https://eliyahukyalley.dev/blog/homelab/) now runs on. The Dell was always on anyway, so it made sense to put it to work.
 
@@ -14,18 +16,15 @@ The idea was simple: have a place to archive files and folders I don't want taki
 
 That's the problem. Here's how I solved it.
 
----
-
 ## The Stack
 
 Before jumping into steps, here's what I ended up using and why:
 
-- **OpenMediaVault (OMV)** as the NAS OS; lightweight, has a clean web UI, runs well as a Proxmox VM, and is built exactly for this kind of use case. I initially thought about TrueNAS but that's built around ZFS and really shines with internal drives and redundancy setups. For two external USB drives and one person (of course for now), OMV is the right tool.
-- **Samba (SMB/CIFS)** for file sharing; so my ThinkPad can access the NAS like a regular network drive.
-- **Tailscale** for remote access; I already use this to access my Proxmox host, so extending it to OMV was a natural fit. Zero port forwarding, zero headaches.
-- **rsync + systemd timer** for automated backups from my ThinkPad to the NAS
+  - **OpenMediaVault (OMV)** as the NAS OS; lightweight, has a clean web UI, runs well as a Proxmox VM, and is built exactly for this kind of use case. I initially thought about TrueNAS but that's built around ZFS and really shines with internal drives and redundancy setups. For two external USB drives and one person (of course for now), OMV is the right tool.
+  - **Samba (SMB/CIFS)** for file sharing; so my ThinkPad can access the NAS like a regular network drive.
+  - **Tailscale** for remote access; I already use this to access my Proxmox host, so extending it to OMV was a natural fit. Zero port forwarding, zero headaches.
+  - **rsync + systemd timer** for automated backups from my ThinkPad to the NAS
 
----
 
 ## Phase 1: USB Passthrough to the VM
 
