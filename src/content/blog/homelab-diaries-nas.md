@@ -5,12 +5,10 @@ excerpt: "Two hard drives, one harvested from a broken Samsung laptop, the other
 coverImage: "/assets/images/blog/nas-cover.jpg"
 ---
 
+After weeks of my makeshift laptop running Proxmox lying dormant, an idea hit me. Honestly, several ideas came to mind at once. I could run the dev branch of my [xUtility app](https://xutility.netlify.app/) on it, use it as a test environment or maybe, spin up another vSRX router for a more complex OSPF topology. Okay, back to the idea.
 
-After weeks of my makeshift laptop running Proxmox lying dormant, an idea hit me, and honestly, several ideas came to mind at once. I could run the dev branch of my [xUtility app](https://xutility.netlify.app/) on it, use it as a test environment, maybe spin up another vSRX router for a more complex OSPF topology. Okay, back to the idea.
-<br>
-<br>
-
-I had two external hard drives lying around. One was harvested from an old Samsung laptop I purchased from a friend a few years back, as an aside, the screen panel from that same laptop was repurposed into an external monitor, which I currently use as a vertical display in my setup. The other drive came from my old daily driver, a [Dell Inspiron, which is the very machine Proxmox](https://eliyahukyalley.dev/blog/homelab/) now runs on. The Dell was always on anyway, so it made sense to put it to work.
+I had two external hard drives lying around. One was harvested from an old Samsung laptop I purchased from a friend a few years back. *As an aside, the screen panel from that same laptop was repurposed into an external monitor, which I currently use as a vertical display in my setup.*
+The other drive came from my old daily driver, a [Dell Inspiron, which is the very machine Proxmox](https://eliyahukyalley.dev/blog/homelab/) now runs on. The Dell was always on anyway, so it made sense to put it to work.
 
 The idea was simple: have a place to archive files and folders I don't want taking up space on my daily driver, while still being accessible from anywhere. Graduating soon means there are a lot of project files, documents, and configs that I want to keep but don't necessarily need on my main machine every day.
 
@@ -40,11 +38,10 @@ Both showed up as JMicron controllers on USB 3.0; good, that means faster transf
 
 One thing worth noting: the VM was created with `q35` machine type instead of the default `i440fx`. This gives better USB hardware compatibility, which matters here since the whole point is to pass USB devices through.
 
----
 
 ## Phase 2: Installing OMV
 
-OMV installs like a standard Debian system. Nothing exotic. The one thing to pay attention to during installation is the disk selection screen, at that point, the VM can see the virtual OS disk *and* both external drives. You want to install OMV onto the virtual disk only. Installing onto an external drive would wipe it and defeat the entire purpose.
+OMV installs like a standard Debian system. Nothing exotic. The one thing to pay attention to during installation is the disk selection screen. At that point, the VM can see the virtual OS disk and both external drives. You want to install OMV onto the virtual disk only. Installing onto an external drive would wipe it and defeat the entire purpose.
 
 After installation, I installed the QEMU guest agent so Proxmox could properly communicate with the VM:
 
@@ -55,7 +52,6 @@ systemctl enable --now qemu-guest-agent
 
 > You might see a warning about the unit file having no Install section. That's normal on Debian, the agent starts automatically via udev. Nothing to worry about.
 
----
 
 ## Phase 3: Tailscale on OMV
 
@@ -68,7 +64,6 @@ tailscale up
 
 Authenticate, done. OMV now has its own IP in my Tailscale network and I can reach the web UI from my ThinkPad regardless of where either machine is.
 
----
 
 ## Phase 4: Configuring OMV
 
@@ -80,11 +75,10 @@ This is where OMV's web UI earns its keep. Everything from here is point-and-cli
 
 **Enabling SMB:** Services → SMB/CIFS → enable, add shares, set to private. Created a user account to authenticate with from the ThinkPad.
 
----
 
 ## Phase 5: Mounting on the ThinkPad
 
-On my daily drive (I use fedora KDE Plasma btw), mounting SMB shares needs `cifs-utils`:
+On my daily drive (I use fedora KDE Plasma btw), mounting SMB shares needs `cifs-utils`.
 
 ```bash
 sudo dnf install cifs-utils -y
@@ -92,13 +86,12 @@ sudo dnf install cifs-utils -y
 
 Created mount points, a credentials file (chmod 600 - don't skip this), and added both shares to `/etc/fstab` with the `_netdev` flag. That flag tells Fedora to wait for the network before attempting the mount, which is essential since the connection goes over Tailscale:
 
-```
+```bash
 //<omv-tailscale-ip>/archive  /mnt/nas/archive  cifs  credentials=/home/elikyals/.smbcredentials,uid=1000,gid=1000,iocharset=utf8,_netdev  0  0
 ```
 
 After a `mount -a` and `systemctl daemon-reload`, both shares mounted cleanly and showed the correct sizes and existing files.
 
----
 
 ## Phase 6: Automated Backups
 
@@ -128,8 +121,6 @@ The backup runs on a systemd timer - weekly, with `Persistent=true` so it catche
 sudo systemctl enable --now nas-backup.timer
 ```
 
----
-
 ## What I Ended Up With
 
 Two external drives plugged into my always-on Proxmox server, presenting as network shares accessible from my ThinkPad whether I'm at home or on campus. Weekly automated backups of everything that matters. A clean archive drive for files I want to keep but don't need locally.
@@ -138,6 +129,5 @@ The whole setup cost nothing beyond hardware I already had. And it's the kind of
 
 The full step-by-step runbook with all commands and configs is on [GitHub](https://github.com/Elikyals/homelab-docs/blob/main/Homelab%20-%20OMV%20NAS%20Setup.md). If you're setting up something similar, that's where the details live.
 
----
 
 *Part of the HomeLab Diaries series - documenting what I build on my Proxmox homelab.*
