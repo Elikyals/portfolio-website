@@ -8,7 +8,7 @@ coverImage: "/assets/images/blog/nas-cover.jpg"
 After weeks of my makeshift laptop running Proxmox lying dormant, an idea hit me. Honestly, several ideas came to mind at once. I could run the dev branch of my [xUtility app](https://xutility.netlify.app/) on it, use it as a test environment or maybe, spin up another vSRX router for a more complex OSPF topology. Okay, back to the idea.
 
 I had two external hard drives lying around. One was harvested from an old Samsung laptop I purchased from a friend a few years back. *As an aside, the screen panel from that same laptop was repurposed into an external monitor, which I currently use as a vertical display in my setup.*
-The other drive came from my old daily driver, a [Dell Inspiron, which is the very machine Proxmox](https://eliyahukyalley.dev/blog/homelab/) now runs on. The Dell was always on anyway, so it made sense to put it to work.
+The other drive came from my old daily driver, a [Dell Inspiron, which is the very machine Proxmox](https://eliyahukyalley.dev/blog/homelab-diaries-nas/) now runs on. The Dell was always on anyway, so it made sense to put it to work.
 
 The idea was simple: have a place to archive files and folders I don't want taking up space on my daily driver, while still being accessible from anywhere. Graduating soon means there are a lot of project files, documents, and configs that I want to keep but don't necessarily need on my main machine every day.
 
